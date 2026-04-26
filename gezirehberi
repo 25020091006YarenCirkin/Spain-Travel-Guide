@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="blog.css" rel="stylesheet" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol
+        id="aperture"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path
+          d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"
+        ></path>
+      </symbol>
+      <symbol id="cart" viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        ></path>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div class="container">
+      <header class="border-bottom lh-1 py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1">
+            <a class="link-secondary" href="#">Bize Ulaşın</a>
+          </div>
+          <div class="col-4 text-center">
+            <a
+              class="blog-header-logo text-body-emphasis text-decoration-none"
+              href="#"
+              >İspanya Gezi Rehberi</a
+            >
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="link-secondary" href="#" aria-label="Search">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="mx-3"
+                role="img"
+                viewBox="0 0 24 24"
+              >
+                <title>Ara</title>
+                <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                <path d="M21 21l-5.2-5.2"></path>
+              </svg>
+            </a>
+            <a class="btn btn-sm btn-outline-secondary" href="#">Seyahati Oluştur</a>
+          </div>
+        </div>
+      </header>
+      <div class="nav-scroller py-1 mb-3 border-bottom">
+        <nav class="nav nav-underline justify-content-between">
+          <a class="nav-item nav-link link-body-emphasis active" href="#"
+            >Ana Sayfa</a
+          >
+          <a class="nav-item nav-link link-body-emphasis" href="#">Rota</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#"
+            >Konaklama</a
+          >
+          <a class="nav-item nav-link link-body-emphasis" href="#">Ulaşım</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Tarih</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Ne Yenir?</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Vize Rehberi</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Etkinlikler</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Siesta Takvimi</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Ne Zaman Gidilir?</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Görülmesi Gereken Yerler</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Sık Sorulan Sorular</a>
+        </nav>
+      </div>
+    </div>
+    <main class="container">
+      <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+       <div class="row align-items-center">
+  
+  <div class="col-lg-8 px-0">
+    <h1 class="display-4 fst-italic">
+      İspanya Seyahati İçin En Temel İspanyolca Kalıplar
+    </h1>
+
+    <p class="lead my-3">
+      İspanya’da günlük iletişim için birkaç temel İspanyolca ifade bilmek yeterlidir. Aşağıda en çok işine yarayacak kalıplar yer alıyor.
+    </p>
+
+    <p class="lead mb-0">
+      <a href="#" class="text-body-emphasis fw-bold">Okumaya devam et...</a>
+    </p>
+  </div>
+
+  <div class="col-lg-4 text-center">
+    <img src="images/chat.png"
+         alt="İspanyolca kalıplar"
+         class="img-fluid rounded"
+         style="height:300px; width:390px; object-fit:cover;">
+  </div>
+
+</div>
+
+</article>
+          <p class="lead mb-0"></p>
+          </p>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+          >
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary-emphasis"
+                >Yemek Kültürü</strong
+              >
+              <h3 class="mb-0">İspanya’da Ne Yemeli? | Tapas'tan Paella'ya</h3>
+              <div class="mb-1 text-body-secondary">26 Nisan</div>
+              <p class="card-text mb-auto">
+                 Bu bölümde seyahat sırasında mutlaka denemen gereken yerel lezzetlere kısa bir bakış bulabilirsin.
+
+
+              </p>
+              <a
+                href="#"
+                class="icon-link gap-1 icon-link-hover stretched-link"
+              >
+                Okumaya devam et...
+                <svg class="bi" aria-hidden="true">
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+             <img src="images/indir.jpg" alt="Spanish Cuisine"
+             style="height:250px; width:200px; object-fit:cover;"
+              class="img-fluid">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+          >
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-success-emphasis"
+                >İspanya Tarihi</strong
+              >
+              <h3 class="mb-0">Geçmişten Bugüne İspanya </h3>
+              <div class="mb-1 text-body-secondary">22 Nisan</div>
+              <p class="mb-auto">
+                İspanya’da bir şehirden diğerine geçerken aslında farklı tarihsel dönemler arasında da yolculuk yaparsın.
+                 Her bölge, kendine özgü bir geçmişi yansıtır.
+              </p>
+              <a
+                href="#"
+                class="icon-link gap-1 icon-link-hover stretched-link"
+              >
+                Okumaya devam et...
+                <svg class="bi" aria-hidden="true">
+                  <use xlink:href="#chevron-right"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+             <img src="images/indir (1).jpg" alt="Spanish Cuisine"
+             style="height:250px; width:200px; object-fit:cover;"
+              class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <div class="row g-5">
+        <div class="col-md-8">
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1">İspanya’da İlk Gün</h2>
+            <p class="blog-post-meta">
+              26 Nisan 2026 <a href="#">Yaren</a> tarafından
+            </p>
+            <p>
+              İspanya’daki ilk gününüzde sizi karşılayacak olan şey, Avrupa’nın geri kalanından çok daha geç başlayan ve gece yarısına kadar sönmeyen yüksek bir enerji dozudur.
+               Şehre adım atar atmaz fark edeceğiniz ilk nesnel gerçek, hayatın sokaklara taşmasıdır; meydanlar sadece geçiş güzergahı değil, her yaştan insanın sosyalleştiği birer oturma odası gibidir.
+                Akdeniz güneşinin etkisiyle parlayan tarihi binalar ve geniş bulvarlar arasında yürürken, her köşe başından gelen kahve kokuları ve yüksek sesli neşeli sohbetler,
+                 ülkenin karakterini size ilk birkaç saat içinde özetler.
+            </p>
+            <hr />
+            <p>
+            Ancak bu canlı atmosferin içinde, İspanya’nın kendine has zaman disiplinine uyum sağlamak zorunluluktur. Öğleden sonra saat 14:00 ile 17:00 arasında şehir üzerine çöken o meşhur siesta sessizliği, dükkanların kepenk indirmesiyle size dinlenmeniz gerektiğini hatırlatan lojistik bir kuraldır.
+             Akşamüzeri ise hayat yeniden başlar ve "Paseo" denilen geleneksel akşam yürüyüşüyle sokaklar dolup taşar.
+             Restoranların 20:30’dan önce akşam servisine başlamadığını bilerek, bu sürede bir tapas barına uğramak ve şehri acele etmeden, yerel ritme göre keşfetmek ilk günün en verimli aktivitesidir.
+            </p>
+            <h2>"No pasa nada."</h2>
+            <p>Kelime anlamıyla "Sorun değil" veya "Bir şey olmaz" demektir. 
+              İspanya'da bir aksaklık yaşadığınızda duyacağınız ilk cümledir.</p>
+            <p>
+              İspanya’ya adım attığınız ilk saatlerde ulaşım hatlarını karıştırmak veya restoranların açılış saatlerini tutturamamak sizi strese sokmasın; çünkü burada her şeyin çözümü "No pasa nada" felsefesinde saklıdır. Bu cümle, ilk günün getirdiği tüm küçük aksaklıkların aslında seyahatin doğal bir parçası olduğunu ve her şeyin bir şekilde yoluna gireceğini hatırlatan kültürel bir güvenlik ağıdır. Planlarınızda ufak sapmalar olduğunda saatlerinize bakmayı bırakıp bu yerel anlayışa teslim olursanız,
+               İspanya’nın o telaşsız ve keyifli dünyasına kapıyı tam da ilk gününüzden aralamış olursunuz.
+            </p>
+            <h3>İlk Günü Nasıl Geçirmeli?</h3>
+            <p>
+              İspanya’daki ilk gününüzde karşılaşacağınız en büyük sürpriz, hayatın saatin tıkırtısına göre değil, güneşin konumuna ve geleneksel dinlenme aralarına göre şekillenmesidir. Şehre adım attığınız andan itibaren bu alışılagelmişin dışındaki tempoyu bir karmaşa olarak değil, ülkenin karakterini belirleyen bir algoritma olarak kabul etmek; ilk günün şaşkınlığını hızlıca bir keşif keyfine dönüştürür. Aşağıdaki pratik sıralamalar ve yerel öneriler, bu yeni düzene lojistik olarak en verimli şekilde uyum sağlamanız ve ilk 24 saatinizi bir İspanyol gibi yaşamanız için rehberlik edecektir:
+            </p>
+            <h5>İspanyol Usulü Deneyimler:</h5>
+            <ul>
+              <li><b>Pazar Kültürü:</b> Sadece alışveriş için değil, taze tapas ve yerel hayatı gözlemlemek için San Miguel veya La Boqueria gibi pazar yerlerini ziyaret etmek.</li>
+              <li><b>Meydan Dinamiği:</b> Şehrin ana meydanlarında (Plaza Mayor) oturup hiçbir şey yapmadan sadece akıp giden sosyal hayatı ve sokak sanatçılarını izlemek.</li>
+              <li><b>Akustik Miras:</b> Akşam saatlerinde herhangi bir meydanda veya mahalle arasında karşınıza çıkabilecek olan sokak flamenkosunun ritmine kulak vermek.</li>
+            </ul>
+            <h5>Zamanlama Algoritması:</h5>
+            <ol>
+              <li><b>Sabah (10:00 - 13:00):</b> Müze ziyaretleri ve ana turistik noktaların keşfi (Henüz kalabalıklaşmadan).</li>
+              <li><b>Öğleden Sonra (14:00 - 17:00):</b> Siesta saati; dükkanlar kapalıyken parklarda dinlenmek.</li>
+              <li><b>Gece (21:00+):</b> Akşam yemeği ve sosyalleşme; İspanya'da şehrin gerçek enerjisinin başladığı saat dilimi.</li>
+            </ol>
+            <p>İspanya’daki ilk günün sonuna doğru, akşamüstü saat 20:00 civarında şehrin üzerine çöken o ikinci enerji dalgası sizi şaşırtabilir. Siesta sessizliğinin yerini alan neşeli kalabalık ve meydanları dolduran Akdeniz ışığı, burada günün aslında iki kez yaşandığının en somut kanıtıdır. Bu saatlerde yapılacak en mantıklı aktivite, hiçbir yere yetişme kaygısı gütmeden sadece kalabalığın akışına kapılmak ve İspanya’nın o meşhur, telaşsız akşam ritmine dahil olmaktır.
+
+Gecenin ilerleyen saatlerinde ise ilk günün yorgunluğunu atmak için en nesnel çözüm, tek bir mekanda oturmak yerine "Tapeo" denilen tapas turuna çıkmaktır. Her durakta farklı bir lezzet deneyip bir sonrakine geçmek, İspanyol sosyal hayatının temel algoritmasını oluşturur. Saatler gece yarısını gösterdiğinde sokakların hala aileler ve kahkahalarla dolu olduğunu görmek, İspanya’nın o yaşsız ve bitmeyen enerjisine ilk günden tam anlamıyla uyum sağladığınızı fark ettirecektir.</p>
+          
+      
+          </article>
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1">Ücretsiz Müze Rehberi</h2>
+            <p class="blog-post-meta">
+              19 Nisan 2026 <a href="#">Yaren</a> tarafından
+            </p>
+            <p>
+             İspanya, dünyanın en önemli sanat koleksiyonlarına ev sahipliği yaparken, bu müzeleri ziyaret etmek seyahat bütçenizin önemli bir kısmını kapsayabilir. Ancak İspanya’daki müzecilik anlayışının bir parçası olan nesnel bir kural, hemen her büyük kurumun haftanın belirli gün ve saatlerinde kapılarını ücretsiz olarak açmasıdır. Bu saat dilimleri sadece bütçe dostu bir seçenek değil, aynı zamanda şehrin kültürel ritmine dahil olmanın en iyi yoludur. Ziyaret planınızı aşağıdaki tabloya göre optimize ederek, Avrupa'nın en değerli eserlerini herhangi bir ücret ödemeden görme şansı yakalayabilirsiniz:
+            </p>
+            
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Müze</th>
+                  <th>Şehir</th>
+                  <th>Ücretsiz Giriş Saatleri</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Prado Müzesi</td>
+                  <td>Madrid</td>
+                  <td>Pazartesi-Cumartesi (18:00-20:00)</td>
+                </tr>
+                <tr>
+                  <td>Reina Sofia</td>
+                  <td>Madrid</td>
+                  <td>Pazartesi-Cumartesi (19:00 - 21:00)</td>
+                </tr>
+                <tr>
+                  <td>Picasso Müzesi</td>
+                  <td>Barselona</td>
+                  <td>Her Perşembe (17:00'den itibaren)</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>MNAC</td>
+                  <td>Barselona</td>
+                  <td>Her Cumartesi (15:00'den itibaren)</td>
+                </tr>
+              </tfoot>
+            </table>
+           
+          </article>
+          <article class="blog-post">
+            <h4 class="display-5 link-body-emphasis mb-1">Dijital Asistanlar: Seyahat Operasyonunuzu Kolaylaştıracak Uygulamalar</h4>
+            <p class="blog-post-meta">
+              29 Nisan 2026 <a href="#">Yaren</a>tarafından
+            </p>
+            <p>
+             İspanya seyahatinin lojistik yönetimini manuel olmaktan çıkarıp dijital bir düzene oturtmak için şu üç temel araç nesnel bir gerekliliktir:
+            </p>
+            <ul>
+              <li>Renfe & Omio: Şehirler arası tren biletlerini takip etmek ve dijital QR kodlarla hızlı geçiş yapmak için en verimli platformlardır.</li>
+              <li>Google Haritalar: İspanya’nın dar sokaklarında (özellikle Toledo ve Sevilla’da) veri akışı kesilse bile navigasyonun sürekliliğini sağlamak için ilgili şehrin haritasını önceden indirmek teknik bir avantajdır.</li>
+              <li>SpanishDict: Sadece çeviri değil, yerel deyimleri ve  kültürel ifadelerin kullanım bağlamlarını anlamak için en güvenilir veri kaynağıdır.</li>
+            </ul>
+            <p>
+             Bu araçları cihazınıza entegre etmek, karşılaştığınız küçük aksaklıkları hızlıca optimize etmenize ve ilk günün karmaşasını bir kenara bırakıp sadece anın tadını çıkarmanıza olanak tanır.
+            </p>
+          </article>
+          <nav class="blog-pagination" aria-label="Pagination">
+            <a class="btn btn-outline-primary rounded-pill" href="#">Yeni</a>
+            <a
+              class="btn btn-outline-secondary rounded-pill disabled"
+              aria-disabled="true"
+              >Eski</a
+            >
+          </nav>
+        </div>
+        <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem">
+            <div class="p-4 mb-3 bg-body-tertiary rounded">
+              <h4 class="fst-italic">Blog Hakkında</h4>
+              <p class="mb-0">
+               İspanya’nın kaotik güzelliğini nesnel bir dille özetleyen seyahat notları. İlk günden son güne kadar, zaman yönetimi ve lojistik odaklı bir rehber seti.
+              </p>
+            </div>
+            <div>
+              <h4 class="fst-italic">Son Gönderiler</h4>
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                    href="#"
+                  >
+                   <img src="images/flag.png" alt="flag" style="height: 120px;" width="120px;">
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">İspanya'da Asla Yapmamanız Gereken 3 Şey</h6>
+                      <small class="text-body-secondary"
+                        >22 Şubat 2026</small
+                      >
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                    href="#"
+                  >
+                    <img src="images/siesta.jpg" alt="siesta" style="height: 120px;" width="120px;">
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">Bir Sokak, İki Dünya: Siesta Öncesi ve Sonrası Şehir Değişimi</h6>
+                      <small class="text-body-secondary"
+                        >4 Ocak 2026</small
+                      >
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                    href="#"
+                  >
+                    <img src="images/plaza.jpg" alt="plazamayor" style="height: 120px;" width="120px;">
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">
+                        Plaza Mayor’da Zamanın İzleri
+                      </h6>
+                      <small class="text-body-secondary"
+                        >7 Aralık 2025</small
+                      >
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="p-4">
+              <h4 class="fst-italic">Şehir Arşivi</h4>
+              <ol class="list-unstyled mb-0">
+                <li><a href="#">Barselona</a></li>
+                <li><a href="#">Madrid</a></li>
+                <li><a href="#">Sevilla</a></li>
+                <li><a href="#">Granada</a></li>
+                <li><a href="#">Valencia</a></li>
+                <li><a href="#">Toledo</a></li>
+                <li><a href="#">Cordoba</a></li>
+            
+              </ol>
+            </div>
+            <div class="p-4">
+              <h4 class="fst-italic">Bağlantılar</h4>
+              <ol class="list-unstyled">
+                <li><a href="#">GitHub</a></li>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">Instagram</a></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+      <p>
+        Bu blog, Yazılım Mühendisliği bölümü İletişim ve Sunum Teknikleri dersi ödevi kapsamında hazırlanmıştır.
+      
+      </p>
+      
+    </footer>
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+  </body>
+</html>
